@@ -1,4 +1,4 @@
-from random import choice
+#from random import choice
 
 from flask import Flask, render_template, request
 
@@ -19,23 +19,19 @@ def say_hello():
 
 @app.route('/game')
 def show_game_form():
-    answer = request.args.get("playgame")
+    answer = request.args.get("playgame")    
     if answer == "yes":
         return render_template("game.html")
     else:
         return render_template("goodbye.html")
-# @app.route('/greet')
-# def greet_person():
-#     player = request.args.get("person")
 
-#     AWESOMENESS = [
-#         'awesome', 'terrific', 'fantastic', 'neato', 'fantabulous', 'wowza', 'oh-so-not-meh',
-#         'brilliant', 'ducky', 'coolio', 'incredible', 'wonderful', 'smashing', 'lovely']
-
-#     compliment = choice(AWESOMENESS)
-
-#     return render_template("compliment.html", person=player, compliment=compliment)
-
+@app.route('/madlib')
+def show_madlib():
+    player = request.args.get("person")
+    color = request.args.get("color")
+    noun = request.args.get("noun")
+    adjective = request.args.get("adjective")
+    return render_template("madlib.html", person = player, color = color, noun = noun, adjective = adjective)
 
 if __name__ == '__main__':
     # debug=True gives us error messages in the browser and also "reloads" our web app
