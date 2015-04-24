@@ -2,8 +2,12 @@
 <html>
 <head>
     <title>Your Madlib!</title>
+    <link rel="stylesheet" href="./static/madlibs.css">
 </head>
 <body>
-    <p>There once was a {{ color }} {{ noun }} sitting in the Hackbright Lab. When {{ person }} went to pick it up, it burst into flames in a totally {{ adjective }} way.</p>
+    <div id="content">
+    <h3>Your Madlib:</h3>
+    <p>There once was a <span class="answers">{{ color }} {{ noun }}</span> sitting in the Hackbright Lab. When <span class="answers">{{ person }}</span> went to pick it up, it burst into flames in a totally <span class="answers">{{ adjective }}</span> way when she was thinking of <span class="answers">{% for food in foods %} {{ food }} {% endfor %}</span>.</p>
+    </div>
 </body>
 </html>

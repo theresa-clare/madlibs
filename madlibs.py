@@ -31,7 +31,11 @@ def show_madlib():
     color = request.args.get("color")
     noun = request.args.get("noun")
     adjective = request.args.get("adjective")
-    return render_template("madlib.html", person = player, color = color, noun = noun, adjective = adjective)
+    foods = request.args.getlist("foods")
+    # foods2 = request.args.get("foods")
+    # foods3 = request.args.get("foods")
+    print request.args
+    return render_template("madlib.html", person = player, color = color, noun = noun, adjective = adjective, foods = foods)
 
 if __name__ == '__main__':
     # debug=True gives us error messages in the browser and also "reloads" our web app
